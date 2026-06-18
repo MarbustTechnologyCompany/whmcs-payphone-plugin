@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Logs / temporales
+*.log
+*.tmp
+
+# No commitear credenciales ni configuración local
+.env
+config.local.php
