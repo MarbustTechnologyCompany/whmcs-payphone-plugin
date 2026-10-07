@@ -12,6 +12,8 @@ Free & open-source **PayPhone** payment gateway for **WHMCS**.
 > pueda cobrar con PayPhone en WHMCS, sin pagar por un módulo comercial.
 > Si te ayuda, considera una donación 💙 → **https://paypal.me/MarbustTechnology**
 
+> **¿Quieres contribuir?** Abre un issue o un PR. Guía: [`CONTRIBUTING.md`](CONTRIBUTING.md) · reglas técnicas y de seguridad: [`AGENTS.md`](AGENTS.md) · primer día: [`docs/ONBOARDING.md`](docs/ONBOARDING.md) · reportar una vulnerabilidad en privado: [`SECURITY.md`](SECURITY.md).
+
 ---
 
 ## 🇪🇸 Español

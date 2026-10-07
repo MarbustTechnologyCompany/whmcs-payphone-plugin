@@ -1,0 +1,67 @@
+name: Reporte de bug
+description: Reportar un defecto o regresión reproducible.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **No incluyas** secretos, tokens, credenciales, cadenas de conexión, datos de clientes ni PII.
+        Flujo: **Tarjeta Trello → este Issue (lo abre MarbustTechnologyCompany) → PR (MarAntBQ) → QA aprueba (MarbustTechnologyCompany) → Producción (con OK de Marco).**
+  - type: textarea
+    id: summary
+    attributes:
+      label: Resumen
+      description: ¿Qué está roto y a quién/qué afecta?
+    validations:
+      required: true
+  - type: input
+    id: surface
+    attributes:
+      label: Módulo / superficie afectada
+      placeholder: "Finanzas, Computers, MBHostCloud, Store, Websites, Vídeos, Accounting/SRI, sitio de cliente…"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproducción
+      description: La secuencia mínima y confiable, incluyendo el entorno (prod/local, rol/usuario).
+      placeholder: |
+        1. En accounts.marbust.com/admin/... como Superadmin
+        2. Hacer ...
+        3. Observar ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamiento esperado
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamiento actual + evidencia
+      description: Capturas seguras, logs, IDs de request o enlaces cuando existan.
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impacto
+      options:
+        - Bloqueante de producción o riesgo (dinero/SRI/datos)
+        - Degradación visible al usuario
+        - Interno / solo preview
+        - Desconocido
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación y verificación
+      description: Qué debe ser verdad, y qué evidencia probará el fix (tsc/tests/curl/click).
+    validations:
+      required: true
