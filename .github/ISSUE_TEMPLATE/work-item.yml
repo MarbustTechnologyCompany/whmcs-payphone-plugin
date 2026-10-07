@@ -1,0 +1,51 @@
+name: Work item (tarea / feature)
+description: Un único resultado revisable de producto, ingeniería o documentación.
+title: ""
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Mantén **un solo resultado**. Divide el trabajo que se pueda aceptar y desplegar por separado.
+        Flujo: **Tarjeta Trello → este Issue (MarbustTechnologyCompany) → PR (MarAntBQ) → QA aprueba (MarbustTechnologyCompany) → Producción (OK de Marco).**
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Resultado (outcome)
+      description: ¿Qué problema resolvemos, para quién, y qué cambia cuando esté completo?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Alcance
+      description: El comportamiento o los artefactos incluidos en este issue.
+    validations:
+      required: true
+  - type: textarea
+    id: exclusions
+    attributes:
+      label: Exclusiones importantes
+      description: Trabajo cercano que este issue deliberadamente NO incluye.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      placeholder: |
+        - [ ] Resultado observable uno
+        - [ ] Resultado observable dos
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verificación
+      description: Evidencia automatizada, de navegador, operativa o externa requerida para cerrar el issue.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto y referencias
+      description: Enlaza código, docs, contratos, incidentes y la tarjeta de Trello. Sin secretos ni PII.

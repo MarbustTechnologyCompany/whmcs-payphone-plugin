@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Flujo de trabajo (Tarjeta → Issue → PR → Producción)
+    url: https://github.com/MarbustTechnologyCompany/.github/blob/main/CONTRIBUTING.md
+    about: Cómo se abren issues, cómo se envían PRs y cómo se aprueba/despliega en Marbust.

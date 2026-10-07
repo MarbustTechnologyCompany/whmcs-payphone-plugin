@@ -1,0 +1,40 @@
+name: Checks del PR
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checker y clase del repo desde la rama base, no desde el PR
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Pruebas del script (versión del PR)
+        run: node --test .github/scripts/pr-checks.test.mjs
+      - name: Título y sección Novedad (checker de la rama base)
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          if [ "$BASE_REF" != "$DEFAULT_BRANCH" ]; then
+            echo "✗ Los PR van contra la rama por defecto ($DEFAULT_BRANCH); este va contra $BASE_REF."
+            exit 1
+          fi
+          if [ -f base/.github/scripts/pr-checks.mjs ] && [ -f base/.github/marbust.json ]; then
+            node base/.github/scripts/pr-checks.mjs
+          else
+            echo "La rama por defecto todavía no tiene el checker: solo el PR que lo introduce usa el suyo."
+            node .github/scripts/pr-checks.mjs
+          fi

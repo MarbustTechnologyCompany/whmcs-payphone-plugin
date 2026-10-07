@@ -1,0 +1,71 @@
+name: Propuesta de módulo
+description: Una idea de módulo o funcionalidad nueva que todavía necesita diseño antes de construirse.
+title: "Módulo: "
+labels:
+  - módulo-nuevo
+  - necesita-diseño
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Una propuesta **no se implementa directamente**. Primero se responden las preguntas abiertas;
+        cuando el diseño está acordado, se divide en issues de **Work item**, cada uno autocontenido,
+        que esta propuesta enlaza.
+        **Describe los tipos de datos, nunca datos reales:** ni ejemplos identificables, ni secretos.
+  - type: input
+    id: trello
+    attributes:
+      label: Tarjeta de Trello
+      placeholder: https://trello.com/c/...
+    validations:
+      required: true
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema que resuelve
+      description: Qué se hace hoy a mano o cómo se resuelve ahora, y qué duele de eso.
+    validations:
+      required: true
+  - type: textarea
+    id: usuarios
+    attributes:
+      label: Quién lo usa
+      description: Qué roles lo usan y qué puede hacer cada uno (ver, crear, editar, eliminar, recibir avisos).
+    validations:
+      required: true
+  - type: textarea
+    id: flujo
+    attributes:
+      label: Flujo de principio a fin
+      description: Los pasos, desde que empieza la actividad hasta que termina.
+    validations:
+      required: true
+  - type: textarea
+    id: datos
+    attributes:
+      label: Datos y protección
+      description: Cada tipo de dato que el módulo guardaría, para qué se usa, quién lo ve y cómo se protege. Si hay datos personales o sensibles, cómo se cumple la LOPDP (Ecuador).
+    validations:
+      required: true
+  - type: textarea
+    id: pantallas
+    attributes:
+      label: Pantallas o superficies esperadas
+      description: Listados, formularios, imprimibles, endpoints, comandos — lo que aplique a este repo.
+  - type: textarea
+    id: reuso
+    attributes:
+      label: Qué reutiliza
+      description: De otros módulos o servicios (correo, PDF, autenticación, exportación, etc.).
+  - type: textarea
+    id: preguntas
+    attributes:
+      label: Preguntas abiertas
+      description: Lo que falta decidir antes de poder escribir los work items.
+    validations:
+      required: true
+  - type: textarea
+    id: fuera
+    attributes:
+      label: Fuera de alcance
+      description: Qué NO hace este módulo, para evitar malentendidos.

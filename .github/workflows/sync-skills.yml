@@ -1,0 +1,11 @@
+name: Sincronizar skills
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 6 * * 1'
+jobs:
+  sync:
+    uses: MarbustTechnologyCompany/.github/.github/workflows/sync-skills.yml@main
+    secrets: inherit
+    with:
+      skills: trabajar-un-issue,escribir-un-issue,revisar-codigo
