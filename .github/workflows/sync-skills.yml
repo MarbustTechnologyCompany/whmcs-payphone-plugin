@@ -5,6 +5,9 @@ on:
     - cron: '0 6 * * 1'
 jobs:
   sync:
+    permissions:
+      contents: write
+      pull-requests: write
     uses: MarbustTechnologyCompany/.github/.github/workflows/sync-skills.yml@main
     secrets: inherit
     with:
