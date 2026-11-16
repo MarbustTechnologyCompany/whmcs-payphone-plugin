@@ -5,7 +5,7 @@ description: Flujo completo para tomar un issue de cualquier repo de Marbust y e
 
 # Trabajar un issue
 
-> **Fuente oficial** (directorio `MarbustTechnologyCompany/ClaudeSkills`). La copia dentro de cada repo se **sincroniza desde aquí** por el Action `sync-skills`; no se edita a mano en el repo.
+> **Copia sincronizada:** la fuente es el directorio de skills de la organización (lo indica el `AGENTS.md` del repo). El Action `sync-skills` la copia a cada repo; no se edita a mano en el repo.
 
 Si es tu primer día en el proyecto, lee antes `docs/ONBOARDING.md` del repo y vuelve aquí para el flujo de cada issue. Los detalles del stack, los comandos y las reglas del dominio salen del `AGENTS.md`/`CONTRIBUTING.md` del repo.
 
@@ -66,12 +66,12 @@ Corre la skill `revisar-codigo` sobre tu diff y resuelve lo que encuentre. **Es 
 
 ## 8. QA
 
-**Codex participa siempre:** si tú (o Claude) implementaste, el QA lo hace Codex; si implementó Codex, lo hace Claude. El QA corre las pruebas sobre el HEAD del PR y **publica su revisión con la cuenta de la empresa**, con el formato de `revisar-codigo`:
+**Codex participa siempre:** si tú (o Claude) implementaste, el QA lo hace Codex; si implementó Codex, lo hace Claude. Revisa una IA **distinta** de la que escribió el código (ver `revisar-codigo` §5, *Quién revisa*). El QA corre las pruebas sobre el HEAD del PR, **en local y antes de pedir la revisión externa** si el repo la tiene, y publica su revisión con la **cuenta revisora** del repo (la que indica su `AGENTS.md`; nunca la del autor), con el formato de `revisar-codigo`:
 
 ```sh
-GH_TOKEN=<token de MarbustTechnologyCompany> gh pr review <n> --request-changes --body-file hallazgos.md
+GH_TOKEN=<token de la cuenta revisora> gh pr review <n> --request-changes --body-file hallazgos.md
 # o, sin hallazgos:
-GH_TOKEN=<token de MarbustTechnologyCompany> gh pr review <n> --approve --body "<qué verificó y cómo>"
+GH_TOKEN=<token de la cuenta revisora> gh pr review <n> --approve --body "<qué verificó y cómo>"
 ```
 
 ## 9. Abrir el PR para revisión
@@ -100,11 +100,11 @@ El QA vuelve a revisar y publica otra vez *Request changes* o *Approve*. El cicl
 
 ## 11. Cierre
 
-Con el *Approve* de `MarbustTechnologyCompany` sobre el último commit, el merge es **squash**; la rama se borra sola. Sin ese *Approve* no se mergea. Después:
+Con el *Approve* de la cuenta revisora sobre el último commit, y la herramienta externa en **5/5** si el repo la tiene, el merge es **squash**; la rama se borra sola. Sin eso no se mergea. Después:
 
 ```sh
 git switch main && git pull
 git branch -d <rama>
 ```
 
-La tarjeta de Trello pasa a *Pending Marco Antonio Testing* con el "cómo probar". **Solo Marco Antonio la cierra.** El despliegue sigue las reglas del repo (auto-deploy al mergear, o con el OK de Marco).
+La tarjeta pasa a la columna de verificación del tablero (la que indique el `AGENTS.md` del repo) con el "cómo probar". **La cierra el responsable del producto**, no quien la trabajó. El despliegue sigue las reglas del repo (auto-deploy al mergear, o con el OK de quien aprueba producción).

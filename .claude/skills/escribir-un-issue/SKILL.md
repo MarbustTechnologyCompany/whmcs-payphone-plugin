@@ -5,7 +5,7 @@ description: Cómo escribir un issue AUTOCONTENIDO para cualquier repo de Marbus
 
 # Escribir un issue
 
-> **Fuente oficial** (directorio `MarbustTechnologyCompany/ClaudeSkills`). La copia dentro de cada repo se **sincroniza desde aquí** por el Action `sync-skills`; no se edita a mano en el repo.
+> **Copia sincronizada:** la fuente es el directorio de skills de la organización (lo indica el `AGENTS.md` del repo). El Action `sync-skills` la copia a cada repo; no se edita a mano en el repo.
 
 ## La regla
 
@@ -16,7 +16,7 @@ Quien lo toma no estuvo en la conversación, puede no ver el tablero de Trello y
 ## Antes de escribirlo
 
 1. **Tarjeta en Trello** (el tablero del repo, con marca + severidad + rol + ejecutor).
-2. El issue lo abre la cuenta **`MarbustTechnologyCompany`**, con una plantilla: *Work item*, *Reporte de bug* o *Propuesta de módulo*.
+2. El issue lo abre la **cuenta de la organización/revisora** que indica el `AGENTS.md` del repo (no la del autor), con una plantilla: *Work item*, *Reporte de bug* o *Propuesta de módulo*.
 
 ## Qué tiene que llevar
 
